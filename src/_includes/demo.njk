@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+{% set pattern = patternId | getPattern(patterns) %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  {% for assetName in assets %}
+    {% set asset = pattern.assets[assetName] %}
+    {% if asset.type == 'css' %}
+      <style>{{ asset.content | safe }}</style>
+    {% endif %}
+  {% endfor %}
+</head>
+<body>
+  <p>Pattern demo standalone page</p>
+  {{ pattern.assets['index.html'].content | safe }}
+  {% for assetName in assets %}
+    {% set asset = pattern.assets[assetName] %}
+    {% if asset.type == 'js' %}
+      <script>{{ asset.content | safe }}</script>
+    {% endif %}
+  {% endfor %}
+</body>
+</html>

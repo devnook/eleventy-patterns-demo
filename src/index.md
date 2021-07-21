@@ -1,10 +1,11 @@
 ---
-layout: base.njk
-title: Hello, World
+layout: base
 ---
 
-{% Pattern 'pancake' %}
+## Homepage
 
----
+<p><a href="/patterns">All patterns</a></p>
 
-{% Pattern 'waffle' %}
+<p>Here is a totally random pattern embed (layouts/waffle):</p>
+
+{% Pattern 'layouts/waffle' %}

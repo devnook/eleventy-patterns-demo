@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rm -rf dist && eleventy --serve"
+    "dev": "rm -rf dist && eleventy --serve --port=8082",
+    "eleventy": "rm -rf dist && eleventy"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",

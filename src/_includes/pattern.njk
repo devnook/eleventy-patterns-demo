@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+{% set patternId = page.url | getPatternId %}
+{% set pattern = patternId | getPattern(patterns) %}
+
+
+
+<p>Pattern landing page (linkable, searchable)</p>
+
+{{ content | safe }}
+
+{% Pattern patternId %}
