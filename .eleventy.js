@@ -7,6 +7,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('getPattern', getPattern);
   eleventyConfig.addWatchTarget("./src/_shortcodes/");
 
+  eleventyConfig.addPassthroughCopy("./src/js");
+
   return {
     dir: {
       input: 'src',

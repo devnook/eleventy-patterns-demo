@@ -4,8 +4,6 @@ const path = require('path');
 const matter = require('gray-matter');
 const md = require('markdown-it')();
 
-const {getPatternId} = require('../_filters/patterns');
-
 const files = glob.sync('src/patterns/**/index.md');
 
 // Create a Set to hold all of the ids
