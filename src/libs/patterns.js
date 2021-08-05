@@ -4,8 +4,6 @@ const path = require('path');
 const matter = require('gray-matter');
 const md = require('markdown-it')();
 
-const {getPatternId} = require('../_filters/patterns');
-
 const files = glob.sync('src/patterns/**/index.md');
 
 // Create a Set to hold all of the ids
@@ -35,13 +33,15 @@ const allPatterns = files.map((file) => {
   const assetsPaths = glob.sync(path.join(path.dirname(file),'*'));
 
   const assets = assetsPaths.reduce((out, assetPath) => {
+    const basename = path.basename(assetPath);
+    const name = basename.split('.')[0];
     const type = path.extname(assetPath).replace(stripDot, '');
-    if (type !== 'md') {
+    if (type !== 'md' && name !== 'demo') {
       const content = fs.readFileSync(assetPath, 'utf-8');
-      out[path.basename(assetPath)] = {
+      out[basename] = {
         content,
         type,
-        name: path.basename(assetPath),
+        name: basename,
       }
     }
     return out;
@@ -50,7 +50,7 @@ const allPatterns = files.map((file) => {
 
   // Render markdown
   const content = md.render(matterResult.content);
-  const demo = matterResult.data.demo || path.join(id, 'demo');
+  const demo = matterResult.data.demo || path.join('/', 'patterns', id, 'demo');
   return {
     id,
     ...matterResult.data,

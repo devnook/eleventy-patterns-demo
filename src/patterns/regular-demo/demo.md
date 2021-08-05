@@ -1,6 +1,6 @@
 ---
 layout: demo
-patternId: pancake
+patternId: regular-demo
 assets: [
     'script.js',
     'style.css'

@@ -35,6 +35,59 @@
 .pattern__content {
   display: flex;
 }
+
+
+web-tabs {
+  display: block;
+  margin: 1em 0;
+  width: 100%;
+}
+
+web-tabs [role='tablist'] {
+  align-items: flex-end;
+  border-bottom: 1px solid #999;
+  display: flex;
+  min-height: 50px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+web-tabs [role='tab'] {
+    background: transparent;
+    border: 0;
+    flex: 1 0 auto;
+    height: 3rem;
+    margin: 0;
+    min-width: fit-content;
+    opacity: 0.6;
+    position: relative;
+    transition: background 0.2s, opacity 0.2s, color 0.2s;
+  }
+
+web-tabs [aria-selected='true'] {
+    color: blue;
+    opacity: 1;
+  }
+
+web-tabs [role='tab']::after {
+    background: transparent;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    right: 0;
+    transition: background 0.2s;
+  }
+
+web-tabs [aria-selected='true']::after {
+    background: blue;
+  }
+
+
 </style>
 </head>
 
@@ -42,6 +95,9 @@
   <main>
     {{ content | safe }}
   </main>
+  <!--<script src="https://unpkg.com/lit-element@2.5.1/lit-element.js"></script>
+  <script src="/js/tabs.js"></script>
+  <script src="/js/script.js"></script>-->
+  <script src="/js/bundle.js"></script>
 </body>
-
 </html>

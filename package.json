@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "dev": "rm -rf dist && eleventy --serve --port=8082",
-    "eleventy": "rm -rf dist && eleventy"
+    "eleventy": "rm -rf dist && eleventy",
+    "rollup": "rollup -c rollup.config.ts",
+    "build": "eleventy && rollup -c rollup.config.ts"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@rollup/plugin-node-resolve": "^13.0.2",
     "common-tags": "^1.8.0",
     "fast-glob": "^3.2.7",
     "gray-matter": "^4.0.3",
-    "markdown-it": "^12.1.0"
+    "lit-element": "^2.5.1",
+    "markdown-it": "^12.1.0",
+    "prismjs": "^1.24.1",
+    "rollup": "^2.53.3"
   }
 }
